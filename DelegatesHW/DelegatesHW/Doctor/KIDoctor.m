@@ -80,5 +80,8 @@
         NSLog(@"Patient name:%@ %@",patient.name,[self makeShot]);
     }
     else NSLog(@"Patient name:%@ feels fine",patient.name);
+    
+    patient.doctorsRate = arc4random()%2;
+    NSLog(@"doctorsRate:%u" ,patient.doctorsRate);
 }
 @end

@@ -81,8 +81,9 @@
     }
     
     
+    //Отчеты после рабочего дня
     
-    for (NSString* string in doctor1.dailyRaport) { //Отчет
+    for (NSString* string in doctor1.dailyRaport) {
         
         NSLog(@"%@",string);
     }
@@ -95,6 +96,38 @@
     for (NSString* string in doctor3.dailyRaport) {
         
         NSLog(@"%@",string);
+    }
+    
+    for (KIPatient* patient in patients) {
+       
+        
+        if((patient.doctorsRate)&&([patient.delegate isKindOfClass:[KIDoctor class]])){
+            
+            
+           NSLog(@"KIDoctor %@ %@ %u",patient.name,patient.delegate.description,patient.doctorsRate);
+            
+           patient.delegate = doctor2;//KIDoctorsFriend
+            
+        }
+        else if((patient.doctorsRate)&&([patient.delegate isKindOfClass:[KIDoctorsFriend class]])){
+            
+           NSLog(@"KIDoctorsFriend %@ %@ %u",patient.name,patient.delegate.description,patient.doctorsRate);
+            
+           patient.delegate = doctor1; //KIDoctor
+        }
+    }
+    
+    for (KIPatient* patient in patients) {
+        
+        [patient.delegate patientFeelsBad:patient patientBodyPain:arc4random_uniform(4)];
+        
+    }
+    
+    for (KIPatient* patient in patients) {
+        
+        
+        NSLog(@"%@ %@ ",patient.name,patient.delegate.description);
+        
     }
     return YES;
 }
