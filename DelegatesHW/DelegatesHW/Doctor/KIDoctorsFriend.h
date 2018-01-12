@@ -12,6 +12,7 @@
 @interface KIDoctorsFriend : NSObject <KIPatientDelegate>
 
 @property(strong,nonatomic) NSString* name;
+@property(strong,nonatomic) NSMutableArray* dailyRaport;
 
 -(NSString*) gotoRun;
 -(NSString*) takeBroth; // Отвар :)

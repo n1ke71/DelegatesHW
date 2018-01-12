@@ -20,14 +20,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+  
+    
     KIDoctor* doctor1 = [[KIDoctor alloc]init];
     doctor1.name = @"doctor1";
+    doctor1.dailyRaport = [NSMutableArray array];
     
     KIDoctorsFriend* doctor2 = [[KIDoctorsFriend alloc]init];
-    doctor2.name = @"doctors friend";
+    doctor2.name = @"doctors friend2";
+    doctor2.dailyRaport = [NSMutableArray array];
     
     KIDoctorsFriend* doctor3 = [[KIDoctorsFriend alloc]init];
-    doctor3.name = @"doctors friend";
+    doctor3.name = @"doctors friend3";
+    doctor3.dailyRaport = [NSMutableArray array];
     
     KIPatient* patient1 = [[KIPatient alloc]init];
     patient1.name = @"patient1";
@@ -71,11 +76,29 @@
     
     for (KIPatient* patient in patients) {
         
-        [patient.delegate patientFeelsBad:patient];
+    [patient.delegate patientFeelsBad:patient patientBodyPain:arc4random_uniform(4)];
+        
     }
     
+    
+    
+    for (NSString* string in doctor1.dailyRaport) { //Отчет
+        
+        NSLog(@"%@",string);
+    }
+        
+    for (NSString* string in doctor2.dailyRaport) {
+        
+        NSLog(@"%@",string);
+    }
+        
+    for (NSString* string in doctor3.dailyRaport) {
+        
+        NSLog(@"%@",string);
+    }
     return YES;
 }
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

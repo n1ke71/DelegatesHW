@@ -12,8 +12,10 @@
 @interface KIDoctor : NSObject <KIPatientDelegate>
 
 @property(strong,nonatomic) NSString* name;
+@property(strong,nonatomic) NSMutableArray* dailyRaport;
 
 -(NSString*) gotoSleep;
 -(NSString*) takePill;
 -(NSString*) makeShot;
+-(NSString*) makeRaport:(NSString*) patient hasGotAPain:(NSString*) bodyPart;
 @end
